@@ -31,6 +31,7 @@ class Freerdp < Formula
   depends_on "libxrender"
   depends_on "libxv"
   depends_on "openssl@1.1"
+  depends_on "jpeg"
 
   on_linux do
     depends_on "alsa-lib"
@@ -39,7 +40,7 @@ class Freerdp < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON", "-DWITH_JPEG=ON"
     system "make", "install"
   end
 
